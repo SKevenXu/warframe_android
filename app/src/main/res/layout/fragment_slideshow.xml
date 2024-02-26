@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.slideshow.SlideshowFragment">
+
+
+
+            <TextView
+                android:id="@+id/text_slideshow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:textColor="@color/black"
+                android:text="普通裂隙:"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.011" />
+
+            <EditText
+                android:id="@+id/fissure_text_area"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+
+                android:gravity="center"
+                android:maxLines="30"
+
+                android:minLines="8"
+                android:scrollbars="horizontal"
+                android:textColor="@color/black"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="@id/text_slideshow"
+                app:layout_constraintTop_toTopOf="@+id/text_slideshow"
+                app:layout_constraintVertical_bias="0.051"
+                tools:ignore="MissingConstraints"></EditText>
+
+            <EditText
+                android:id="@+id/fissure_text_area_hard"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/fissure_text_area"
+                android:layout_marginTop="48dp"
+
+                android:gravity="center"
+                android:maxLines="30"
+                android:minLines="8"
+                android:textColor="@color/black"
+                app:layout_constraintTop_toBottomOf="@+id/fissure_text_area"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="0dp" />
+
+
+
+
+            <EditText
+                android:id="@+id/fissure_text_area_storm"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/fissure_text_area"
+                android:layout_marginTop="36dp"
+
+                android:scrollbars="vertical"
+                android:gravity="center"
+                android:maxLines="8"
+                android:minLines="8"
+                android:textColor="@color/black"
+                app:layout_constraintTop_toBottomOf="@+id/fissure_text_area_hard"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="-8dp" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toTopOf="@+id/fissure_text_area_hard"
+                app:layout_constraintTop_toBottomOf="@+id/fissure_text_area"
+                tools:ignore="MissingConstraints"
+                android:text="钢铁裂隙:"
+                android:textColor="@color/black"
+                tools:layout_editor_absoluteX="-8dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="九重天裂隙:"
+                android:textColor="@color/black"
+                app:layout_constraintBottom_toTopOf="@+id/fissure_text_area_storm"
+                app:layout_constraintTop_toBottomOf="@+id/fissure_text_area_hard"
+                app:layout_constraintVertical_bias="0.83"
+                tools:ignore="MissingConstraints,NotSibling"
+                tools:layout_editor_absoluteX="0dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
