@@ -1,5 +1,6 @@
 package com.example.warframedemo1.ui.ItemSearch;
 
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -15,14 +16,18 @@ import android.widget.SearchView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 
 import com.example.warframedemo1.HttpUtils;
 import com.example.warframedemo1.R;
+import com.example.warframedemo1.databinding.FragmentItemsearchBinding;
+import com.example.warframedemo1.databinding.FragmentRivensearchBinding;
 import com.example.warframedemo1.databinding.FragmentVoidtraderBinding;
 import com.example.warframedemo1.showProgressBar;
+import com.example.warframedemo1.ui.RivenSearch.RivenSearchViewModel;
 import com.example.warframedemo1.warframedata.datafromlog.USB_demo;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
@@ -39,7 +44,12 @@ public class ItemSearchFragment extends Fragment{
     public ArrayAdapter<String> adapter=null;
     public List list=null;
     public ArrayList url_num=null;
-    SearchView searchView=getView().findViewById(R.id.itemsearch_search);
+
+
+
+
+
+    SearchView searchView=getActivity().findViewById(R.id.itemsearch_search);
     ListView listView=getView().findViewById(R.id.itemsearch_listview);
     TextView textView=getView().findViewById(R.id.text_itemSearch);
     class thread extends Thread{
@@ -70,7 +80,7 @@ public class ItemSearchFragment extends Fragment{
         public void run(){
 
                 payload pay = getitemname();
-                //System.out.println(pay.items.get(0).item_name);
+                System.out.println(pay.items.get(0).item_name);
 
             getActivity().runOnUiThread(()->{
 
@@ -155,6 +165,20 @@ public class ItemSearchFragment extends Fragment{
 
 
         }
+    }
+    private FragmentItemsearchBinding binding;
+
+    public View onCreateView(@NonNull LayoutInflater inflater,
+                             ViewGroup container, Bundle savedInstanceState) {
+        ItemSearchViewModel ItemSearchViewModel =
+                new ViewModelProvider(this).get(ItemSearchViewModel.class);
+
+        binding = FragmentItemsearchBinding.inflate(inflater, container, false);
+        View root = binding.getRoot();
+
+        final TextView textView = binding.textItemSearch;
+        ItemSearchViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        return root;
     }
 
 
