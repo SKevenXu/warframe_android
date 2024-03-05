@@ -47,4 +47,9 @@
         android:name="com.example.warframedemo1.ui.RivenSearch.RivenSearchFragment"
         android:label="@string/menu_rivensearch"
         tools:layout="@layout/fragment_rivensearch"/>
+    <fragment
+        android:id="@+id/nav_itemsearch"
+        android:name="com.example.warframedemo1.ui.ItemSearch.ItemSearchFragment"
+        android:label="@string/menu_itemsearch"
+        tools:layout="@layout/fragment_itemsearch"/>
 </navigation>

@@ -27,9 +27,10 @@ public class ConstructionFragment extends Fragment {
         ProgressBar progressBar_razorabck=getView().findViewById(R.id.Razorback_progressbar);
         @Override
         public void run() {
+
+            getActivity().runOnUiThread(()->{
                 text_fomorian.setText("");
                 texi_razorback.setText("");
-            getActivity().runOnUiThread(()->{
                 text_fomorian.append("豺狼舰队建造进度:\t"+con.getFomorian());
                 texi_razorback.append("巨人舰队建造进度:\t"+con.getRazorback());
                 progressBar_fomorian.setProgress((int)con.getFomorian(),true);

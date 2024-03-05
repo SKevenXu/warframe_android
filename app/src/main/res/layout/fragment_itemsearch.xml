@@ -4,9 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.RivenSearch.RivenSearchFragment">
+    tools:context=".ui.ItemSearch.ItemSearchFragment">
+<!--    TODO-->
     <TextView
-        android:id="@+id/text_RivenSearch"
+        android:id="@+id/text_itemSearch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -19,21 +20,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
     <SearchView
-        android:id="@+id/rivensearch_search"
+        android:id="@+id/itemsearch_search"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="text"
         android:iconifiedByDefault="true"
-        android:queryHint="请输入查询紫卡"
+        android:queryHint="请输入..."
         tools:ignore="MissingConstraints" />
+
     <ListView
-        android:id="@+id/rivensearch_listview"
+        android:id="@+id/itemsearch_listview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/text_RivenSearch"
-        app:layout_constraintTop_toBottomOf="@+id/rivensearch_search"
+        app:layout_constraintBottom_toTopOf="@+id/text_itemSearch"
+        app:layout_constraintTop_toBottomOf="@+id/itemsearch_search"
         app:layout_constraintVertical_bias="0.534"
-        tools:ignore="MissingConstraints"
+        tools:ignore="MissingConstraints,UnknownIdInLayout"
         tools:layout_editor_absoluteX="0dp"
         android:headerDividersEnabled="true"
         android:stackFromBottom="true"/>

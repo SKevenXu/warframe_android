@@ -15,5 +15,6 @@
     <string name="menu_invasions">入侵</string>
     <string name="menu_construction">舰队建造</string>
     <string name="menu_rivensearch">紫卡查询</string>
+    <string name="menu_itemsearch">wm交易查询</string>
 
 </resources>

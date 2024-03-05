@@ -36,5 +36,9 @@
             android:id="@+id/nav_rivensearch"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="@string/menu_rivensearch" />
+        <item
+            android:id="@+id/nav_itemsearch"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="@string/menu_itemsearch" />
     </group>
 </menu>
