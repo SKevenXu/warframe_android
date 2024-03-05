@@ -25,6 +25,7 @@ import program.invasions.*;
 
 public class invasionsFragment extends Fragment {
     class thread extends Thread{
+
         invasions inva=new invasions();
 
 
@@ -39,18 +40,24 @@ public class invasionsFragment extends Fragment {
             editText_invasion.setFocusableInTouchMode(false);
             editText_invasion.setText("");
             editText_invasion.setGravity(Gravity.LEFT);
-            getActivity().runOnUiThread(()->{
-                for(int i=0;i<inva.getnode().length;i++){
-                    if(inva.getnode()[i]!=null){
-                        editText_invasion.append("\t\t任务地图:\t"+inva.getnode()[i]+"\n");
-                        editText_invasion.append("\t\t防守方:\t"+inva.getattackingFaction()[i]+"\n");
-                        editText_invasion.append("\t\t进攻方:\t"+inva.getdefendingFaction()[i]+"\n");
-                        editText_invasion.append("\t\t进攻方胜利奖励:\t"+inva.getattackerreward()[i]+"\n");
-                        editText_invasion.append("\t\t防守方胜利奖励:\t"+inva.getdefenderreward()[i]+"\n");
-                        editText_invasion.append("\t\t任务进度比例:\t"+inva.getcompletion()[i]+"%\n\n");
 
+            getActivity().runOnUiThread(()->{
+                try {
+                    for(int i=0;i<inva.getnode().length;i++){
+                        if(inva.getnode()[i]!=null){
+                            editText_invasion.append("\t\t任务地图:\t"+inva.getnode()[i]+"\n");
+                            editText_invasion.append("\t\t防守方:\t"+inva.getattackingFaction()[i]+"\n");
+                            editText_invasion.append("\t\t进攻方:\t"+inva.getdefendingFaction()[i]+"\n");
+                            editText_invasion.append("\t\t进攻方胜利奖励:\t"+inva.getattackerreward()[i]+"\n");
+                            editText_invasion.append("\t\t防守方胜利奖励:\t"+inva.getdefenderreward()[i]+"\n");
+                            editText_invasion.append("\t\t任务进度比例:\t"+inva.getcompletion()[i]+"%\n\n");
+
+                        }
                     }
+                }catch (Exception e){
+                    editText_invasion.setText("DE抽风不给数据!");
                 }
+
 
 
             });
@@ -96,8 +103,13 @@ public class invasionsFragment extends Fragment {
     public void onResume() {
         super.onResume();
         new Thread(()->{
-            thread th=new thread();
-            th.start();
+
+                thread th=new thread();
+                th.start();
+
+
+
+
 
 
         }).start();
