@@ -49,12 +49,13 @@ public class ItemSearchFragment extends Fragment{
 
 
 
-    SearchView searchView=getActivity().findViewById(R.id.itemsearch_search);
-    ListView listView=getView().findViewById(R.id.itemsearch_listview);
-    TextView textView=getView().findViewById(R.id.text_itemSearch);
+
+
     class thread extends Thread{
         HttpUtils http=new HttpUtils();
         Gson gson=new Gson();
+        SearchView searchView=getView().findViewById(R.id.itemsearch_searchs);
+        ListView listView=getView().findViewById(R.id.itemsearch_listview);
 
         thread() throws IOException {
         }
@@ -80,7 +81,7 @@ public class ItemSearchFragment extends Fragment{
         public void run(){
 
                 payload pay = getitemname();
-                System.out.println(pay.items.get(0).item_name);
+                //System.out.println(pay.items.get(0).item_name);
 
             getActivity().runOnUiThread(()->{
 
@@ -114,29 +115,18 @@ public class ItemSearchFragment extends Fragment{
 
                     @Override
                     public boolean onQueryTextChange(String newText) {
-//                        String pattern=".*"+newText+".*";
-//                        Pattern p=Pattern.compile(pattern);
-//
-//                        for(int i=0;i<pay.items.size();i++){
-//                            Matcher m=p.matcher(pay.items.get(i).item_name);
-//                            if(m.find()==true){
-//                                adapter.add(m.group());
-//                                System.out.println(m.group());
-//                                listView.setAdapter(adapter);
-//                            }
-//                        }
-                        return false;
+                        return true;
                     }
                 });
-//                searchView.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View v) {
-//                        System.out.println("onclick"+v);
-//                        list.clear();
-//                        adapter =new ArrayAdapter<String>(getActivity(),R.layout.listviewlayout,list);
-//                        listView.setAdapter(adapter);
-//                    }
-//                });
+                searchView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        System.out.println("onclick"+v);
+                        list.clear();
+                        adapter =new ArrayAdapter<String>(getActivity(),R.layout.listviewlayout,list);
+                        listView.setAdapter(adapter);
+                    }
+                });
                 searchView.setOnCloseListener(new SearchView.OnCloseListener() {
                     @Override
                     public boolean onClose() {
@@ -154,13 +144,15 @@ public class ItemSearchFragment extends Fragment{
                         Intent intent= new Intent();
                         intent.setAction("android.intent.action.VIEW");
                         String weapon_name=url_num.get(position).toString();
-                        Uri content = Uri.parse("https://warframe.market/zh-hans/auctions/search?type=riven&weapon_url_name="+weapon_name+"&polarity=any&sort_by=price_asc");
+                        Uri content = Uri.parse("https://warframe.market/zh-hans/items/"+weapon_name);
                         intent.setData(content);
                         startActivity(intent);
                         System.out.println("on click item\t\t"+position+"\t\t"+id);
                     }
                 });
             });
+            showProgressBar show=new showProgressBar();
+            show.hideProgressDialog();
 
 
 
@@ -170,30 +162,44 @@ public class ItemSearchFragment extends Fragment{
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        ItemSearchViewModel ItemSearchViewModel =
+        ItemSearchViewModel ItemsearchViewModel =
                 new ViewModelProvider(this).get(ItemSearchViewModel.class);
 
         binding = FragmentItemsearchBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         final TextView textView = binding.textItemSearch;
-        ItemSearchViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        ItemsearchViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        showProgressBar show=new showProgressBar();
+        show.showProgressDialog(getActivity(),"loading...");
+    }
 
     @Override
     public void onResume() {
         super.onResume();
-        try {
-        System.out.println("thread start!");
-        thread th= null;
+        new Thread(()->{
+            try {
+                System.out.println("thread start!");
+                thread th= null;
 
-            th = new thread();
-            th.start();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+                th = new thread();
+                th.start();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }).start();
+
 
 
     }
@@ -201,7 +207,7 @@ public class ItemSearchFragment extends Fragment{
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-
+        binding=null;
     }
 }
 class test{
