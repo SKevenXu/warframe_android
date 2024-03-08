@@ -50,6 +50,7 @@ public class RivenSearchFragment extends Fragment {
         public payload getweaponname() throws Exception {
             HttpUtils http=new HttpUtils();
             String temp= http.getFromAssets("weapon_url_name.json",getActivity());
+            //String temp=http.getData_zh("https://api.warframe.market/v1/riven/items");//error: int java.util.List.size()
             Gson gson=new Gson();
 
             payload demo=gson.fromJson(temp,payload.class);

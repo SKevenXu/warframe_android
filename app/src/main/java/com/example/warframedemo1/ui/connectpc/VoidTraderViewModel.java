@@ -1,4 +1,4 @@
-package com.example.warframedemo1.ui.voidtrader;
+package com.example.warframedemo1.ui.connectpc;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -13,7 +13,7 @@ public class VoidTraderViewModel extends ViewModel{
         mText = new MutableLiveData<>();
         USB_demo us=new USB_demo();
 
-        mText.setValue("");
+        mText.setValue("us.getUsbdevice(getContext(),getActivity())");
     }
 
     public LiveData<String> getText() {
