@@ -47,19 +47,24 @@ public class SundryFragment extends Fragment{
                 textView_sortie.setText("");
                 textView_arch.setText("");
                 textView_steel.setText("");
-                textView_arbit.append("仲裁:\t\t\t\n"+"\t\t\t仲裁任务:\t"+tra.fissure_translate(arbit.arbittype())+"\n\t\t\t任务地点:\t"+arbit.arbitnode()
-                +"\n\t\t\t派系:\t"+arbit.arbitenemy()+"\n\t\t\t剩余时间:\t\t"+arbit.arbittime()+"分钟");
-                textView_sortie.append("突击:\t\t\t\n");
-                for(int i=0;i<sortie.getmissions().length;i++){
-                    textView_sortie.append("\t\t任务"+(i+1)+":\t"+tra.fissure_translate(sortie.getmissions()[i])+"\n\t\t\t任务地点:\t"+sortie.getnodes()[i]
-                    +"\n\t\t\t任务限制:\t"+sortie.getmodifiers()[i]+"\n\t\t\t限制描述:\t"+sortie.getmodifierDescriptions()[i]+"\n");
+                if (arbit.arbittype()!=null){
+                    textView_arbit.append("仲裁:\t\t\t\n"+"\t\t\t仲裁任务:\t"+tra.fissure_translate(arbit.arbittype())+"\n\t\t\t任务地点:\t"+arbit.arbitnode()
+                            +"\n\t\t\t派系:\t"+arbit.arbitenemy()+"\n\t\t\t剩余时间:\t\t"+arbit.arbittime()+"分钟");
+                    textView_sortie.append("突击:\t\t\t\n");
+                    for(int i=0;i<sortie.getmissions().length;i++){
+                        textView_sortie.append("\t\t任务"+(i+1)+":\t"+tra.fissure_translate(sortie.getmissions()[i])+"\n\t\t\t任务地点:\t"+sortie.getnodes()[i]
+                                +"\n\t\t\t任务限制:\t"+sortie.getmodifiers()[i]+"\n\t\t\t限制描述:\t"+sortie.getmodifierDescriptions()[i]+"\n");
+                    }
+                    textView_arch.append("执行官:\n"+"\t\t本周执行官:\t"+arch.ArchonHunt_boss()
+                            +"\n\t\t还有\t"+arch.ArchonHunt_eta()+"\t轮换\n");
+                    for(int i=0;i<arch.ArchonHunt_node().length;i++){
+                        textView_arch.append("\t\t任务"+(i+1)+":\t"+tra.fissure_translate(arch.ArchonHunt_type()[i])+"\n\t\t\t任务地点:\t"+arch.ArchonHunt_node()[i]+"\n");
+                    }
+                    textView_steel.append("钢铁之路奖励:\n"+"\t\t\t物品:\t"+steel.curr_name()+"\n"+"\t\t\t需要的钢精:\t"+steel.curr_cost()+"\n\t\t\t还有\t"+steel.steel_remaining()+"\t轮换\n");
+                }else{
+                    textView_arbit.setText("DE抽风不给数据!");
                 }
-                textView_arch.append("执行官:\n"+"\t\t本周执行官:\t"+arch.ArchonHunt_boss()
-                +"\n\t\t还有\t"+arch.ArchonHunt_eta()+"\t轮换\n");
-                for(int i=0;i<arch.ArchonHunt_node().length;i++){
-                    textView_arch.append("\t\t任务"+(i+1)+":\t"+tra.fissure_translate(arch.ArchonHunt_type()[i])+"\n\t\t\t任务地点:\t"+arch.ArchonHunt_node()[i]+"\n");
-                }
-                textView_steel.append("钢铁之路奖励:\n"+"\t\t\t物品:\t"+steel.curr_name()+"\n"+"\t\t\t需要的钢精:\t"+steel.curr_cost()+"\n\t\t\t还有\t"+steel.steel_remaining()+"\t轮换\n");
+
 
             });
 
