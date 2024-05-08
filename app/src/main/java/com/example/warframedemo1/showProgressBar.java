@@ -10,7 +10,8 @@ public class showProgressBar {
         public  void showProgressDialog(Context context, String message) {
             progressDialog = new ProgressDialog(context);
             progressDialog.setMessage(message);
-            progressDialog.setCancelable(false);
+            progressDialog.setCancelable(true);
+
             progressDialog.show();
         }
 

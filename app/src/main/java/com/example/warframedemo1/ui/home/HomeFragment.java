@@ -89,7 +89,9 @@ public class HomeFragment extends Fragment {
             vallis_cycle vallis= new vallis_cycle();
             return vallis.get_vallis_iswarm();
         }
-
+        TextView textView_cetus = getView().findViewById(R.id.text_cetus);
+        TextView textView_cambion = getView().findViewById(R.id.text_cambion);
+        TextView textView_vallis = getView().findViewById(R.id.text_vail);
 
 
 
@@ -107,6 +109,45 @@ public class HomeFragment extends Fragment {
                 vallis_iswarm=getvallisiswarm();
                 vallis_time=getvallistimeleft();
 //                      textView.append(getcetustime());
+
+                    getActivity().runOnUiThread(() -> {
+                        textView_cetus.setText("");
+                        textView_cambion.setText("");
+                        textView_vallis.setText("");
+
+                        if (cetus_time != null && cambion_time != null && vallis_time != null) {
+                            textView_cetus.append("cetus timeleft:\t" + cetus_time + "\n");
+                            textView_cambion.append("cambion timeleft:\t" + cambion_time + "\n");
+
+                            textView_cambion.append("cambion is " + cambion_state);
+
+                            textView_vallis.append("vallis timeleft:\t" + vallis_time + "\n");
+
+                            if (cetus_isday != true) {
+                                textView_cetus.setBackgroundColor(Color.WHITE);
+                                textView_cetus.setTextColor(Color.BLACK);
+                                textView_cetus.append("cetus is day" + "\n");
+                            } else {
+                                textView_cetus.setBackgroundColor(Color.BLACK);
+                                textView_cetus.setTextColor(Color.WHITE);
+                                textView_cetus.append("cetus is night\n");
+                            }
+                            if (vallis_iswarm == true) {
+                                textView_vallis.append("vallis is warm");
+                            } else {
+                                textView_vallis.append("vallis is cold");
+                            }
+
+
+                        }
+
+
+
+                    });
+
+
+                showProgressBar show=new showProgressBar();
+                show.hideProgressDialog();
 
             }catch (Exception e){
                 Log.d(msg,e.toString());
@@ -147,58 +188,11 @@ public class HomeFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        TextView textView_cetus = getView().findViewById(R.id.text_cetus);
-        TextView textView_cambion = getView().findViewById(R.id.text_cambion);
-        TextView textView_vallis = getView().findViewById(R.id.text_vail);
-
-        new Thread(() -> {
-            getActivity().runOnUiThread(() -> {
-                textView_cetus.setText("");
-                textView_cambion.setText("");
-                textView_vallis.setText("");
-                thread th = new thread();
-                th.start();
-                //                   try {
-//                            pro.showProgressDialog(mainactivity.this);
-//
-//                            pro.hideProgressDialog();
-                //Thread.sleep(2000);
-                //                   } catch (Exception e) {}
-                while (true) {
-                    if (cetus_time != null && cambion_time != null && vallis_time != null) {
-                        textView_cetus.append("cetus timeleft:\t" + cetus_time + "\n");
-                        textView_cambion.append("cambion timeleft:\t" + cambion_time + "\n");
-
-                        textView_cambion.append("cambion is " + cambion_state);
-
-                        textView_vallis.append("vallis timeleft:\t" + vallis_time + "\n");
-
-                        if (cetus_isday != true) {
-                            textView_cetus.setBackgroundColor(Color.WHITE);
-                            textView_cetus.setTextColor(Color.BLACK);
-                            textView_cetus.append("cetus is day" + "\n");
-                        } else {
-                            textView_cetus.setBackgroundColor(Color.BLACK);
-                            textView_cetus.setTextColor(Color.WHITE);
-                            textView_cetus.append("cetus is night\n");
-                        }
-                        if (vallis_iswarm == true) {
-                            textView_vallis.append("vallis is warm");
-                        } else {
-                            textView_vallis.append("vallis is cold");
-                        }
-                        break;
-
-                    }
+        thread th=new thread();
+        th.start();
 
 
-                }
-            });
 
-
-        }).start();
-        showProgressBar show=new showProgressBar();
-        show.hideProgressDialog();
     }
 
     @Override

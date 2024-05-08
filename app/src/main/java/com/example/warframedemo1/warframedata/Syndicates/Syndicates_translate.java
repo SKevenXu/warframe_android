@@ -103,7 +103,7 @@ public class Syndicates_translate {
                 ZH_word_Cetus="找出遗失的器物(钢铁之路)";
                 break;
             default:
-                ZH_word_Cetus = "null";
+                ZH_word_Cetus =  word+"(未翻译)";
                 break;
         }
 
@@ -149,9 +149,15 @@ public class Syndicates_translate {
             case "Reclaim What's Ours":
                 ZH_word_Cambion = "重夺领地";
                 break;
+            case "Dirt Unit":
+                ZH_word_Cambion = "尘土部队";
+                break;
 
             case "For Science! (Endless)":
                 ZH_word_Cambion = "为了科学！(无尽)";
+                break;
+            case "Dirt Unit (Endless)":
+                ZH_word_Cambion = "尘土部队(无尽)";
                 break;
             case "Salvage (Endless)":
                 ZH_word_Cambion = "回收金属(无尽)";
@@ -186,7 +192,7 @@ public class Syndicates_translate {
                 break;
 
             default:
-                ZH_word_Cambion = "null";
+                ZH_word_Cambion = word+"(未翻译)";
                 break;
         }
         return ZH_word_Cambion;
@@ -315,7 +321,7 @@ public class Syndicates_translate {
                 ZH_word_vallis=" Master's Voice(合一众)";
                 break;
             default:
-                ZH_word_vallis = "null";
+                ZH_word_vallis = word+"(未翻译)";
                 break;
         }
         return ZH_word_vallis;
