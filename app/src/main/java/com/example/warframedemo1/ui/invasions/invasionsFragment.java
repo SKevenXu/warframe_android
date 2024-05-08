@@ -2,6 +2,7 @@ package com.example.warframedemo1.ui.invasions;
 
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -56,6 +57,7 @@ public class invasionsFragment extends Fragment {
                     }
                 }catch (Exception e){
                     editText_invasion.setText("DE抽风不给数据!");
+                    Log.d("invassion",e.toString());
                 }
 
 
