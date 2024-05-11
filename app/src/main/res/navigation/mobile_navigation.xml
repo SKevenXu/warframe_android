@@ -52,4 +52,9 @@
         android:name="com.example.warframedemo1.ui.ItemSearch.ItemSearchFragment"
         android:label="@string/menu_itemsearch"
         tools:layout="@layout/fragment_itemsearch"/>
+    <fragment
+        android:id="@+id/nav_ducats"
+        android:name="com.example.warframedemo1.ui.ducats.DucatsFragment"
+        android:label="@string/menu_ducats"
+        tools:layout="@layout/fragment_ducats"/>
 </navigation>

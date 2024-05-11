@@ -40,5 +40,9 @@
             android:id="@+id/nav_itemsearch"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="@string/menu_itemsearch" />
+        <item
+            android:id="@+id/nav_ducats"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="@string/menu_ducats" />
     </group>
 </menu>
