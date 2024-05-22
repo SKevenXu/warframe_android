@@ -30,9 +30,9 @@ public class GalleryFragment extends Fragment {
         TextView textView_vaills=getView().findViewById(R.id.Syndicate_vaills_title);
         TextView textView_cambion=getView().findViewById(R.id.Syndicate_cambion_title);
 
-        EditText editText_cetus=getView().findViewById(R.id.Syndicate_cetus);
-        EditText editText_vaills=getView().findViewById(R.id.Syndicate_vaills);
-        EditText editText_cambion=getView().findViewById(R.id.Syndicate_cambion);
+        TextView editText_cetus=getView().findViewById(R.id.Syndicate_cetus);
+        TextView editText_vaills=getView().findViewById(R.id.Syndicate_vaills);
+        TextView editText_cambion=getView().findViewById(R.id.Syndicate_cambion);
         @Override
         public void run() {
             getActivity().runOnUiThread(()->{

@@ -33,15 +33,15 @@ public class SundryFragment extends Fragment{
         fissures_translate tra=new fissures_translate();
 
 
-        EditText textView_arbit=getView().findViewById(R.id.attribute_text);
-        EditText textView_sortie=getView().findViewById(R.id.sortie_text);
-        EditText textView_steel=getView().findViewById(R.id.steelpath_text);
-        EditText textView_arch=getView().findViewById(R.id.ArchonHuntReward_text);
+        TextView textView_arbit=getView().findViewById(R.id.attribute_text);
+        TextView textView_sortie=getView().findViewById(R.id.sortie_text);
+        TextView textView_steel=getView().findViewById(R.id.steelpath_text);
+        TextView textView_arch=getView().findViewById(R.id.ArchonHuntReward_text);
 
         showProgressBar show=new showProgressBar();
         @Override
         public void run() {
-            textView_sortie.setMovementMethod(ScrollingMovementMethod.getInstance());
+
             getActivity().runOnUiThread(()->{
                 textView_arbit.setText("");
                 textView_sortie.setText("");

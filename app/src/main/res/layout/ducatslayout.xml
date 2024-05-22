@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/ducats_attrs"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content">
+
+    <TextView
+        android:id="@+id/ducats_text"
+        android:layout_width="260dp"
+        android:layout_height="150dp"
+
+        android:background="@drawable/shapedrawable"
+        android:text="带阴影的TextView"
+
+        android:textSize="15dp"
+
+
+         />
+
+    <ImageView
+
+
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:background="@drawable/shapedrawable"
+         />
+
+
+</LinearLayout>

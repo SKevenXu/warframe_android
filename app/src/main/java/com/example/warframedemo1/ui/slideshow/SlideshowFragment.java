@@ -31,18 +31,16 @@ public class SlideshowFragment extends Fragment {
         public void run() {
             getActivity().runOnUiThread(()->{
 
-                EditText edit=getView().findViewById(R.id.fissure_text_area);
-                EditText edit_hard=getView().findViewById(R.id.fissure_text_area_hard);
-                EditText edit_storm=getView().findViewById(R.id.fissure_text_area_storm);
+                TextView edit=getView().findViewById(R.id.fissure_text_area);
+                TextView edit_hard=getView().findViewById(R.id.fissure_text_area_hard);
+                TextView edit_storm=getView().findViewById(R.id.fissure_text_area_storm);
                 edit_storm.setFocusable(false);
                 edit_storm.setFocusableInTouchMode(false);
                 edit.setFocusable(false);
                 edit.setFocusableInTouchMode(false);
                 edit_hard.setFocusable(false);
                 edit_hard.setFocusableInTouchMode(false);
-                edit.setText("");
-                edit_hard.setText("");
-                edit_storm.setText("");
+
                 edit.setGravity(Gravity.LEFT);
                 edit_storm.setGravity(Gravity.LEFT);
                 edit_hard.setGravity(Gravity.LEFT);

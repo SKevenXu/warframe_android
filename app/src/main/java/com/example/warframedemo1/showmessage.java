@@ -16,6 +16,7 @@ import android.content.DialogInterface;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.Icon;
+import android.util.Log;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.EditText;
@@ -29,6 +30,23 @@ import java.util.Random;
 
 
 public class showmessage {
+    public void showupdatemessage(Context context,String texttittle){
+        readfile read=new readfile();
+        AlertDialog.Builder builder=new AlertDialog.Builder(context);
+        builder.setTitle(texttittle);
+        builder.setMessage(read.getFromAssets("update.txt",context));
+        builder.setPositiveButton("朕已阅", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Log.d("msg","onclick");
+                dialogInterface.dismiss();
+
+            }
+        });
+        AlertDialog dialog=builder.create();
+        dialog.show();
+    }
+
 
     public void showmessage(Context context,String messagetitle,String messagetext){
         NotificationManager notificationManager = (NotificationManager)context.getSystemService(NOTIFICATION_SERVICE);

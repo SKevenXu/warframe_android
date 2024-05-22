@@ -4,57 +4,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/ducats"
+    android:orientation="vertical"
     tools:context=".ui.gallery.GalleryFragment">
-
-
-    <TextView
-        android:id="@+id/ducats_tittle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="杜卡德计算器:"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.158" />
-
-    <TextView
-        android:id="@+id/ducats_time"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:textColor="@color/black"
-        android:textSize="20dp"
-        android:gravity="right"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="-8dp" />
-
     <ScrollView
-        android:id="@+id/ducats_scroll"
         android:layout_width="match_parent"
-        android:layout_height="680dp"
-        android:foregroundGravity="center"
-
-
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ducats_time"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="167dp" >
-
-        <TextView
-            android:id="@+id/ducats_text"
+        android:layout_height="match_parent"
+        tools:ignore="MissingConstraints" >
+        <LinearLayout
+            android:id="@+id/ducats_linear"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:orientation="vertical" >
 
-            android:textColor="@color/black"
-            android:textSize="20dp" />
+        </LinearLayout>
     </ScrollView>
+
+    <TextView
+        android:id="@+id/ducatsTittle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        tools:ignore="MissingConstraints" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

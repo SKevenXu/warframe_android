@@ -30,15 +30,14 @@ public class invasionsFragment extends Fragment {
         invasions inva=new invasions();
 
 
-        EditText editText_invasion=getView().findViewById(R.id.text_invasion);
+        TextView editText_invasion=getView().findViewById(R.id.text_invasion);
 
 
 
 
         @Override
         public void run() {
-            editText_invasion.setFocusable(false);
-            editText_invasion.setFocusableInTouchMode(false);
+
             editText_invasion.setText("");
             editText_invasion.setGravity(Gravity.LEFT);
 

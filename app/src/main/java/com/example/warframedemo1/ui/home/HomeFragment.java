@@ -19,6 +19,7 @@ import com.example.warframedemo1.MainActivity;
 import com.example.warframedemo1.R;
 import com.example.warframedemo1.databinding.FragmentHomeBinding;
 
+import com.example.warframedemo1.readfile;
 import com.example.warframedemo1.showProgressBar;
 import com.example.warframedemo1.showmessage;
 import com.example.warframedemo1.warframedata.cycle.*;
@@ -190,6 +191,23 @@ public class HomeFragment extends Fragment {
         super.onResume();
         thread th=new thread();
         th.start();
+        showmessage s=new showmessage();
+        readfile read=new readfile();
+        read.write(getContext(),"0","update_if.txt");
+        //TODO 发布时记得改
+        if (read.update(getContext(),"update_if.txt").hashCode()=="0".hashCode()){
+            s.showupdatemessage(getActivity(),"update");
+            read.write(getContext(),"1","update_if.txt");
+            //TODO 发布时记得改
+        }
+
+
+//        read.sharepreference(getContext());
+        int version=2;
+//        if (read.getupdate(getContext(),version)){
+//            s.showupdatemessage(getActivity(),"text");
+//            Log.d("msg",read.getFromAssets("update.txt",getContext()));
+//        }
 
 
 
