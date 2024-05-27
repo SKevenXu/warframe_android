@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">warframe demo1</string>
+    <string name="app_name">warframe tool</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -26,5 +26,6 @@
     <string name="menu_rivensearch">紫卡查询</string>
     <string name="menu_itemsearch">wm交易查询</string>
     <string name="menu_ducats">杜卡德计算器</string>
+    <string name="menu_updateinfo">更新公告</string>
 
 </resources>

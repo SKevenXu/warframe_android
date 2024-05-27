@@ -44,5 +44,9 @@
             android:id="@+id/nav_ducats"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="@string/menu_ducats" />
+        <item
+            android:id="@+id/nav_updateinfo"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="@string/menu_updateinfo" />
     </group>
 </menu>

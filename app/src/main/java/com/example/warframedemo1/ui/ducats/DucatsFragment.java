@@ -1,6 +1,7 @@
 package com.example.warframedemo1.ui.ducats;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
@@ -41,7 +42,7 @@ import program.getItemUrlName.*;
 import program.ducatssearch.*;
 
 public class DucatsFragment extends Fragment {
-
+    AlertDialog alertDialog;
     public String msg="ducats: ";
     public  long strToDate(String dateStr) throws Exception {
         Date dates = new Date();
@@ -158,7 +159,7 @@ public class DucatsFragment extends Fragment {
             });
 
             showProgressBar show=new showProgressBar();
-            show.hideProgressDialog();
+            show.hideimageDialog(alertDialog);
         }
     }
 
@@ -186,7 +187,7 @@ public class DucatsFragment extends Fragment {
         super.onStart();
 
         showProgressBar show=new showProgressBar();
-        show.showProgressDialog(getActivity(),"loading...");
+        alertDialog=show.showimageDialog(getActivity());
     }
 
     @Override

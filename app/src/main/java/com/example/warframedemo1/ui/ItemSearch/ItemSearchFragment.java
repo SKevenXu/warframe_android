@@ -1,5 +1,6 @@
 package com.example.warframedemo1.ui.ItemSearch;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -41,6 +42,7 @@ import java.util.regex.Pattern;
 
 
 public class ItemSearchFragment extends Fragment{
+    AlertDialog alertDialog;
     public ArrayAdapter<String> adapter=null;
     public List list=null;
     public ArrayList url_num=null;
@@ -152,7 +154,7 @@ public class ItemSearchFragment extends Fragment{
                 });
             });
             showProgressBar show=new showProgressBar();
-            show.hideProgressDialog();
+            show.hideimageDialog(alertDialog);
 
 
 
@@ -182,7 +184,7 @@ public class ItemSearchFragment extends Fragment{
     public void onStart() {
         super.onStart();
         showProgressBar show=new showProgressBar();
-        show.showProgressDialog(getActivity(),"loading...");
+        alertDialog=show.showimageDialog(getActivity());
     }
 
     @Override

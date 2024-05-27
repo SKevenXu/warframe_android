@@ -1,0 +1,40 @@
+{"payload":{
+    "version": [{
+        "time": "2024-05-24",
+        "ver_num": "1.0.0",
+        
+            "detail": [
+                {"detail_text":"1.增加了杜卡德金币计算器"},
+                {"detail_text":"2.改善组件布局"}
+            ]
+        
+        
+    },{
+        "time": "2024-05-25",
+        "ver_num": "1.0.0_beta",
+        "detail": [{
+            "detail_text":"1.改善布局"
+        },{
+            "detail_text":"2.增加更新日至"
+        }
+        ,{
+            "detail_text":"3.更新加载图标"
+          },{
+            "detail_text":"4.更新应用图标"
+          }]
+           
+        
+      },{
+        "time": "2024-05-27",
+        "ver_num": "1.0.0_beta",
+
+        "detail": [
+            {"detail_text":"1.修正更新日志无法正常显示的bug"},
+            {"detail_text":"2.改善更新日志的布局"}
+        ]
+
+
+    }]
+}
+    
+  }

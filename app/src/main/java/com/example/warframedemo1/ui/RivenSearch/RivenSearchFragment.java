@@ -1,5 +1,6 @@
 package com.example.warframedemo1.ui.RivenSearch;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -34,6 +35,7 @@ import java.util.regex.Pattern;
 
 
 public class RivenSearchFragment extends Fragment {
+    AlertDialog alertDialog;
     public ArrayAdapter<String> adapter=null;
     public List list=null;
     public ArrayList url_num=null;
@@ -150,7 +152,7 @@ public class RivenSearchFragment extends Fragment {
                 });
             });
             showProgressBar show=new showProgressBar();
-            show.hideProgressDialog();
+            show.hideimageDialog(alertDialog);
         }
     }
     private FragmentRivensearchBinding binding;
@@ -178,7 +180,7 @@ public class RivenSearchFragment extends Fragment {
     public void onStart() {
         super.onStart();
         showProgressBar show=new showProgressBar();
-        show.showProgressDialog(getActivity(),"loading...");
+        alertDialog=show.showimageDialog(getActivity());
     }
 
     @Override

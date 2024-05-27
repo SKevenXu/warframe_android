@@ -1,5 +1,6 @@
 package com.example.warframedemo1.ui.home;
 
+import android.app.AlertDialog;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
@@ -19,6 +20,7 @@ import com.example.warframedemo1.MainActivity;
 import com.example.warframedemo1.R;
 import com.example.warframedemo1.databinding.FragmentHomeBinding;
 
+import com.example.warframedemo1.loadingimage;
 import com.example.warframedemo1.readfile;
 import com.example.warframedemo1.showProgressBar;
 import com.example.warframedemo1.showmessage;
@@ -35,7 +37,7 @@ import java.util.TimerTask;
 
 
 public class HomeFragment extends Fragment {
-
+    private AlertDialog alertDialog;
     private FragmentHomeBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -147,14 +149,14 @@ public class HomeFragment extends Fragment {
                     });
 
 
-                showProgressBar show=new showProgressBar();
-                show.hideProgressDialog();
+
 
             }catch (Exception e){
                 Log.d(msg,e.toString());
             }
 
-
+            showProgressBar show=new showProgressBar();
+            show.hideimageDialog(alertDialog);
 
         }
     }
@@ -180,9 +182,11 @@ public class HomeFragment extends Fragment {
 
     @Override
     public void onStart() {
+
         super.onStart();
         showProgressBar show=new showProgressBar();
-        show.showProgressDialog(getActivity(),"loading...");
+        //show.showProgressDialog(getActivity(),"loading...");
+        alertDialog=show.showimageDialog(getActivity());
 
     }
 
@@ -193,7 +197,7 @@ public class HomeFragment extends Fragment {
         th.start();
         showmessage s=new showmessage();
         readfile read=new readfile();
-        read.write(getContext(),"0","update_if.txt");
+        //read.write(getContext(),"0","update_if.txt");
         //TODO 发布时记得改
         if (read.update(getContext(),"update_if.txt").hashCode()=="0".hashCode()){
             s.showupdatemessage(getActivity(),"update");
@@ -202,8 +206,9 @@ public class HomeFragment extends Fragment {
         }
 
 
+
 //        read.sharepreference(getContext());
-        int version=2;
+
 //        if (read.getupdate(getContext(),version)){
 //            s.showupdatemessage(getActivity(),"text");
 //            Log.d("msg",read.getFromAssets("update.txt",getContext()));

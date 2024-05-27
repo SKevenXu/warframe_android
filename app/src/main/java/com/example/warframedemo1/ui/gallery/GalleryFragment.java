@@ -1,5 +1,6 @@
 package com.example.warframedemo1.ui.gallery;
 
+import android.app.AlertDialog;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -20,6 +21,7 @@ import com.example.warframedemo1.warframedata.Syndicates.Syndicates_translate;
 
 
 public class GalleryFragment extends Fragment {
+    AlertDialog alertDialog;
     public String msg="Syndicate: ";
     class thread extends Thread{
 //        CetusSyndicate syndicate=new CetusSyndicate();
@@ -56,7 +58,7 @@ public class GalleryFragment extends Fragment {
                 }
             });
             showProgressBar show=new showProgressBar();
-            show.hideProgressDialog();
+            show.hideimageDialog(alertDialog);
         }
     }
 
@@ -79,7 +81,7 @@ public class GalleryFragment extends Fragment {
     public void onStart() {
         super.onStart();
         showProgressBar show=new showProgressBar();
-        show.showProgressDialog(getActivity(),"loading...");
+        alertDialog=show.showimageDialog(getActivity());
     }
 
     @Override

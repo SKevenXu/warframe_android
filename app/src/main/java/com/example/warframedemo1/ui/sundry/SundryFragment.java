@@ -1,4 +1,5 @@
 package com.example.warframedemo1.ui.sundry;
+import android.app.AlertDialog;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
 import android.view.LayoutInflater;
@@ -23,6 +24,7 @@ import program.fissures.fissures_translate;
 
 
 public class SundryFragment extends Fragment{
+    AlertDialog alertDialog;
 
     private FragmentSundryBinding binding;
     class thread extends Thread{
@@ -68,7 +70,7 @@ public class SundryFragment extends Fragment{
 
             });
 
-            show.hideProgressDialog();
+            show.hideimageDialog(alertDialog);
         }
     }
 
@@ -89,7 +91,7 @@ public class SundryFragment extends Fragment{
     public void onStart() {
         super.onStart();
         showProgressBar show=new showProgressBar();
-        show.showProgressDialog(getActivity(),"loading...");
+        alertDialog=show.showimageDialog(getActivity());
 
     }
 

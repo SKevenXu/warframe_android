@@ -1,5 +1,6 @@
 package com.example.warframedemo1.ui.slideshow;
 
+import android.app.AlertDialog;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
@@ -20,6 +21,7 @@ import com.example.warframedemo1.warframedata.fissure.fissures_tools;
 
 import program.fissures.*;
 public class SlideshowFragment extends Fragment {
+    AlertDialog alertDialog;
     public String msg="fissure :";
     private FragmentSlideshowBinding binding;
     class theard extends Thread{
@@ -81,7 +83,7 @@ public class SlideshowFragment extends Fragment {
 
             });
             showProgressBar show=new showProgressBar();
-            show.hideProgressDialog();
+            show.hideimageDialog(alertDialog);
         }
     }
 
@@ -102,7 +104,7 @@ public class SlideshowFragment extends Fragment {
     public void onStart() {
         super.onStart();
         showProgressBar show=new showProgressBar();
-        show.showProgressDialog(getActivity(),"loading...");
+        alertDialog=show.showimageDialog(getActivity());
     }
 
     @Override

@@ -1,5 +1,6 @@
 package com.example.warframedemo1.ui.construction;
 
+import android.app.AlertDialog;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,6 +20,7 @@ import program.ConstructionProgress.*;
 
 
 public class ConstructionFragment extends Fragment {
+    AlertDialog alertDialog;
     class thread extends Thread{
         construction con=new construction();
         TextView text_fomorian=getView().findViewById(R.id.formorian_text);
@@ -38,7 +40,7 @@ public class ConstructionFragment extends Fragment {
 
             });
             showProgressBar show=new showProgressBar();
-            show.hideProgressDialog();
+            show.hideimageDialog(alertDialog);
         }
     }
     private FragmentContructionBinding binding;
@@ -60,7 +62,7 @@ public class ConstructionFragment extends Fragment {
     public void onStart() {
         super.onStart();
         showProgressBar show=new showProgressBar();
-        show.showProgressDialog(getActivity(),"Loading...");
+        alertDialog=show.showimageDialog(getActivity());
     }
 
     @Override
